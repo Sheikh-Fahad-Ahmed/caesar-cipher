@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+
+
 def cipher(string, key)
   ascii_code = []
   string.each_byte do |c|

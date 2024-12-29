@@ -12,7 +12,7 @@ def cipher(string, key)
     end
     ascii_code.push(c)
   end
-  ascii_code.pack('c*')
+  ascii_code.pack("c*")
 end
 
-puts cipher('What a string!', 5)
+puts cipher("What a string!", 5)

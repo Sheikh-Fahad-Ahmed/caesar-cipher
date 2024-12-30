@@ -4,17 +4,24 @@
 class Cipher
   def cipher(string, key)
     ascii_code = []
-    string.each_byte do |c|
-      if c >= 65 && c <= 90
-        c += key
-        c -= 26 if c > 90
-      elsif c >= 97 && c <= 122
-        c += key
-        c -= 26 if c > 122
+    letters = string.chars
+    letters.each do |c|
+      value = c.ord
+      if value >= 65 && value <= 90
+        value += key
+        value -= 26 if value > 90
+      elsif value >= 97 && value <= 122
+        value += key
+        value -= 26 if value > 122
       end
-      ascii_code.push(c)
+      ascii_code.push(value.chr)
     end
-    ascii_code.pack("c*")
+    ascii_code.join('')
   end
 end
-puts cipher("What a string!", 5)
+
+
+
+c = Cipher.new
+puts c.cipher('What a String!', 5)
+puts c.cipher('What a String!', 5) == "Bmfy f Xywnsl!" ? "true" : "false"
